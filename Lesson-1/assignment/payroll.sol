@@ -47,4 +47,18 @@ contract Payroll {
         lastPayday = nextPayday;
         employee.transfer(salary);
     }
+
+    //homework
+    function setAddress(address addr) {
+        require(msg.sender == employee);
+        
+        employee = addr;
+    }
+    
+    // only the boss can adjust the salary
+    function setSalary(uint sal) {
+        require(msg.sender == owner);
+        
+        salary = sal * 1 ether;
+    }
 }
