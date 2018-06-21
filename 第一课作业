@@ -6,7 +6,7 @@ contract Pallroll {
     uint payDuration = 10 seconds;
     uint lastPayday;
     
-    function Payroll() {
+    constructor() public {
         owner = msg.sender;
     }
     
@@ -19,6 +19,7 @@ contract Pallroll {
             uint payment = salary * (now - lastPayday) / payDuration;
             employee.transfer(payment);
         }
+        
         _;
     }
      
@@ -30,19 +31,20 @@ contract Pallroll {
         employee = _employee;
     }
     
-    function addFund() payable returns (uint) {
-       return this.balance; 
+    function addFund() public payable returns (uint) {
+       require (msg.sender == owner);
+       return address(this).balance; 
     }
     
-    function calculateRunway() returns (uint) {
-        return this.balance / salary;
+    function calculateRunway() public view returns (uint) {
+        return address(this).balance / salary;
     }
     
-    function hasEnoughFund() returns(bool) {
+    function hasEnoughFund() public view returns(bool) {
         return calculateRunway() > 0;
     }
     
-    function getPaid() {
+    function getPaid() public returns(bool){
         require(msg.sender == employee);
         
         uint nextPayday = lastPayday + payDuration;
@@ -50,6 +52,8 @@ contract Pallroll {
         
         lastPayday = nextPayday;
         employee.transfer(salary);
+        
+        return true;
     }
     
 }
