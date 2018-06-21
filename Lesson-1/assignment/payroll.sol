@@ -49,15 +49,25 @@ contract Payroll {
     }
 
     //homework
+    function payOff() {
+        require(msg.sender == owner);
+
+        if (employee != 0x0) {
+            uint payment = salary * (now - lastPayday) / payDuration;
+            employee.transfer(payment);
+        }
+
+        lastPayday = now;
+    }
+    
     function setAddress(address addr) {
-        require(msg.sender == employee);
+        payOff();
         
         employee = addr;
     }
     
-    // only the boss can adjust the salary
     function setSalary(uint sal) {
-        require(msg.sender == owner);
+        payOff();
         
         salary = sal * 1 ether;
     }
