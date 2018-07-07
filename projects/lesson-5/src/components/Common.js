@@ -27,10 +27,7 @@ class Common extends Component {
      * this.removeEmployee = payroll.RemoveEmployee(updateInfo);
      */
 
-<<<<<<< HEAD
 
-=======
->>>>>>> team-repo/master
     this.getEmployerInfo();
   }
 
@@ -44,10 +41,7 @@ class Common extends Component {
      * this.updateEmployee.stopWatching();
      * this.removeEmployee.stopWatching();
      */
-<<<<<<< HEAD
 
-=======
->>>>>>> team-repo/master
   }
 
   getEmployerInfo = () => {
@@ -84,8 +78,4 @@ class Common extends Component {
   }
 }
 
-<<<<<<< HEAD
 export default Common
-=======
-export default Common
->>>>>>> team-repo/master

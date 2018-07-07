@@ -159,7 +159,6 @@ contract Payroll is Ownable {
         lastPayday = employees[id].lastPayday;
         balance = address(id).balance;
     }
-<<<<<<< HEAD
     function checkInfo() returns (uint balance, uint runway, uint employeeCount) {
         balance = this.balance;
         employeeCount = employeeAddressList.length;
@@ -169,6 +168,3 @@ contract Payroll is Ownable {
         }
     }
 }
-=======
-}
->>>>>>> team-repo/master
