@@ -49,7 +49,11 @@ class EmployeeList extends Component {
 
   componentDidMount() {
     const { payroll, account, web3 } = this.props;
+<<<<<<< HEAD
     payroll.getEmployerInfo.call({
+=======
+    payroll.checkInfo.call({
+>>>>>>> team-repo/master
       from: account
     }).then((result) => {
       const employeeCount = result[2].toNumber();
@@ -65,6 +69,7 @@ class EmployeeList extends Component {
   }
 
   loadEmployees(employeeCount) {
+<<<<<<< HEAD
     const { payroll, account, web3 } = this.props;
     const requests = [];
     for ( let index = 0; index < employeeCount; index++) {
@@ -140,6 +145,17 @@ class EmployeeList extends Component {
     }).catch(()=>{
       message.error("no enough money");
     });
+=======
+  }
+
+  addEmployee = () => {
+  }
+
+  updateEmployee = (address, salary) => {
+  }
+
+  removeEmployee = (employeeId) => {
+>>>>>>> team-repo/master
   }
 
   renderModal() {

@@ -5,9 +5,6 @@ import './Ownable.sol';
 
 contract Payroll is Ownable {
 
-    /**
-     * event will be introduced in lesson 6
-     */
     event AddFund(address indexed from, uint value);
     event GetPaid(address indexed employee, uint value);
     event AddEmployee(address indexed from, address indexed employee, uint salary);
@@ -159,16 +156,4 @@ contract Payroll is Ownable {
         lastPayday = employees[id].lastPayday;
         balance = address(id).balance;
     }
-<<<<<<< HEAD
-    function checkInfo() returns (uint balance, uint runway, uint employeeCount) {
-        balance = this.balance;
-        employeeCount = employeeAddressList.length;
-
-        if (totalSalary > 0) {
-            runway = calculateRunway();
-        }
-    }
 }
-=======
-}
->>>>>>> team-repo/master
